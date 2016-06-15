@@ -1,0 +1,14 @@
+{
+  "name": "lib",
+  "homepage": "https://github.com/BenCopeland/actorDB-cap",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
