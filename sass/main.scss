@@ -1,9 +1,35 @@
-$lobster: grey;
+$lobster: #0D0D0D;
  
  body{
  	background-color: $lobster;
  }
  
+///////////////////////
+//// LOGIN STYLING ////
+///////////////////////
+
  h1{
  	text-align: center;
- } 
+ }
+
+.login-container {
+	text-align: center;
+	background-color: #CCCCCC;
+	margin-top: 10%;
+	border-radius: 10px;
+	border: 1px solid #B3B3B3; 
+	padding: 0px 0px 15px 0px;
+}
+
+.login-input {
+	text-align: center;
+	background-color: #E6E6E6;
+	margin: 20px 20% 0 20%;
+	padding: 20px 5% 5px 5%;
+	border-radius: 10px;
+	border: 1px solid #D8D8D8;
+}
+
+.login-btns {
+	margin-top: 15px;
+}

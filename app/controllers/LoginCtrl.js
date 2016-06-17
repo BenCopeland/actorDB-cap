@@ -1,6 +1,6 @@
 "use strict";
-
-app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory, actorStorage){
+																			// vv actorStorage vv
+app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
 	let ref = new Firebase(firebaseURL);
 	$scope.actors = [];
 	

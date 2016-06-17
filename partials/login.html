@@ -1,13 +1,23 @@
-<section>
-	<h1>Login or Register</h1>	
-	<div>
-		Email: <input type="text" autofocus="true" ng-model="account.email">
+<!-- <section>  -->
+	<div class="login-container col-md-8 col-md-offset-2">
+		<div class="row">
+			<h1>Login or Register</h1>	
+			<div class="login-input">
+				<form>
+					<div class="form-group">
+						<!-- <label for="exampleInputEmail1">Email address</label> -->
+						<input type="email" class="form-control" placeholder="Email" ng-model="account.email">
+					</div>
+					<div class="form-group">
+						<!-- <label for="exampleInputPassword1">Password</label> -->
+						<input type="password" class="form-control" placeholder="Password" ng-model="account.password">
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row login-szbtns">
+			<button type="submit" class="btn btn-default" ng-click="login()">Login</button>
+			<button class="btn btn-info" ng-click="register()">Register</button>
+		</div>
 	</div>
-	<div>
-		Password: <input type="password" ng-model="account.password">
-	</div>
-	<div>
-		<button class="btn btn-info" ng-click="login()">Login</button>
-		<button class="btn btn-default" ng-click="register()">Register</button>
-	</div>
-</section>
+<!-- </section>

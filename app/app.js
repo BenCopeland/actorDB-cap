@@ -47,7 +47,7 @@ app.config(function($routeProvider){
 		// 	templateUrl: "partials/login.html",
 		// 	controller: "LoginCtrl"
 		// }).
-		otherwise("/login");
+		otherwise("/");
 });
 
 app.run(($location) => {
