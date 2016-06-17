@@ -24,11 +24,11 @@ app.config(function($routeProvider){
 		// 	controller: "ContactListCtrl",
 		// 	resolve: {isAuth}
 		// }).
-		// when("/contacts/new", {
-		// 	templateUrl: "partials/contact-new.html",
-		// 	controller: "ContactNewCtrl",
-		// 	resolve: {isAuth}
-		// }).
+		when("/actors/new", {
+			templateUrl: "partials/actor-new.html",
+			controller: "ActorNewCtrl",
+			resolve: {isAuth}
+		}).
 		// when("/contacts/:contactId", {
 		// 	templateUrl: "partials/contact-details.html",
 		// 	controller: "ContactDetailsCtrl",

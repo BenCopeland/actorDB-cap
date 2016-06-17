@@ -22,11 +22,17 @@
 			"heightInMax": 0,
 			"weight": 165,
 			"equityStatus": false,
-			"tags": "",
+			"applicableTags": "",
 			"headshotUrl": "",
 			"resumeUrl": "",
 			"active": true,
 			"notes": "",
+			"uid": ""
+		}
+	},
+	"savedTags":{
+		"firebasekey":{
+			"tag": "",
 			"uid": ""
 		}
 	},

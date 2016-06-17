@@ -3,14 +3,13 @@ $lobster: #0D0D0D;
  body{
  	background-color: $lobster;
  }
+ h1{
+ 	text-align: center;
+ }
  
 ///////////////////////
 //// LOGIN STYLING ////
 ///////////////////////
-
- h1{
- 	text-align: center;
- }
 
 .login-container {
 	text-align: center;
@@ -32,4 +31,17 @@ $lobster: #0D0D0D;
 
 .login-btns {
 	margin-top: 15px;
+}
+
+///////////////////////
+// NEW ENTRY STYLING //
+///////////////////////
+
+.new-entry-container {
+	// text-align: center;
+	background-color: #CCCCCC;
+	// margin-top: 10%;
+	border-radius: 10px;
+	border: 1px solid #B3B3B3; 
+	// padding: 0px 0px 15px 0px;
 }
