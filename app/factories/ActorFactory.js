@@ -28,30 +28,30 @@ app.factory("actorStorage", function($q, $http, firebaseURL, AuthFactory){
 	// 	});
 	// };
 
-	// var postNewContact = function(newContact){
- //        let user = AuthFactory.getUser();
- //        return $q(function(resolve, reject) {
- //            $http.post(
- //                firebaseURL + "contacts.json",
- //                JSON.stringify({
- //                    firstName: newContact.firstName,
- //                    lastName: newContact.lastName,
- //                    phone: newContact.phone,
- //                    address: newContact.address,
- //                    email: newContact.address,
- //                    company: newContact.company,
- //                    shitListed: newContact.shitListed,
- //                    notes: newContact.notes,
- //                    uid: user.uid
- //                })
- //            )
- //            .success(
- //                function(objectFromFirebase) {
- //                    resolve(objectFromFirebase);
- //                }
- //            );
- //        });
-	// };
+	var postNewActor = function(newActor){
+        let user = AuthFactory.getUser();
+        return $q(function(resolve, reject) {
+            $http.post(
+                firebaseURL + "actors.json",
+                JSON.stringify({
+                    firstName: newContact.firstName,
+                    lastName: newContact.lastName,
+                    phone: newContact.phone,
+                    address: newContact.address,
+                    email: newContact.address,
+                    company: newContact.company,
+                    shitListed: newContact.shitListed,
+                    notes: newContact.notes,
+                    uid: user.uid
+                })
+            )
+            .success(
+                function(objectFromFirebase) {
+                    resolve(objectFromFirebase);
+                }
+            );
+        });
+	};
 
 	// var getSingleContact = function(contactId){
 	// 	return $q(function(resolve, reject){
