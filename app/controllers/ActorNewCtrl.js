@@ -14,7 +14,7 @@ app.controller("ActorNewCtrl", function($scope, $location, actorStorage){
         hairColor: "",
         eyeColor: "",
         training: "",
-        ethnicities: "",
+        ethnicRange: "",
         ageRangeMin: 0,
         ageRangeMax: 0,
         heightFtMin: 0,

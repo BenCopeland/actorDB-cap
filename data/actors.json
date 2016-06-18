@@ -13,7 +13,7 @@
 			"hairColor": "Brown, Blonde",
 			"eyeColor": "Brown",
 			"training": "",
-			"ethnicities": "Caucasian",
+			"ethnicRange": "Caucasian",
 			"ageRangeMin": 20,
 			"ageRangeMax": 35,
 			"heightFtMin": 5,
