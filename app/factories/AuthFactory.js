@@ -1,59 +1,35 @@
 "use strict";
 
 app.factory("AuthFactory", function(firebaseURL, $http) {
-  let ref = new Firebase(firebaseURL);
-  let currentUserData = null;
+
+
+
+  // let ref = new Firebase(firebaseURL);
+  let currentUser = null;
 
   // return whole page same as return {blah:blah, dose:dose} at bottom
   return {
-    /*
-      Determine if the client is authenticated
-     */
-    isAuthenticated () {
-      let authData = ref.getAuth();
-      return (authData) ? true : false;
-    },
 
-    getUser () {
-      return currentUserData;
-    },
-
-    /*
-      Authenticate the client via Firebase
-     */
-    authenticate (credentials) {
-      return new Promise((resolve, reject) => {
-      		// firebase method
-        ref.authWithPassword({
-          "email": credentials.email,
-          "password": credentials.password
-        }, (error, authData) => {
-          if (error) {
-            reject(error);
-          } else {
-            console.log("authWithPassword method completed successfully");
-            currentUserData = authData;
-            resolve(authData);
-          }
+    createNewUser(email, password) {
+    firebase.auth().createUserWithEmailAndPassword(email, password).
+      catch(function(error) {
+        console.log(error.code);
+        alert(error.message);
         });
+    },
+
+    signIn(email, password) {
+    firebase.auth().signInWithEmailAndPassword(email, password).
+      catch(function(error) {
+        console.log(error.code);
+        alert(error.message);
       });
     },
 
-    /*
-      Store each Firebase user's id in the `users` collection
-     */
-    storeUser (authData) {
-      let stringifiedUser = JSON.stringify({ uid: authData.uid });
-
-      return new Promise((resolve, reject) => {
-        $http
-          .post(`${firebaseURL}/users.json`, stringifiedUser)
-          .then(
-            res => resolve(res),
-            err => reject(err)
-          );
-      });
+    isAuthenticated () {
+      let authData = firebase.auth().currentUser;
+      return (authData) ? true : false;
     }
 
-  };
-});
+  }
+})

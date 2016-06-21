@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module("ActorDBApp", ["ngRoute"])
 	.constant("firebaseURL", "https://actor-db.firebaseio.com/");
 
@@ -39,23 +41,37 @@ app.config(function($routeProvider){
 		// 	controller: "ContactEditCtrl",
 		// 	resolve: {isAuth}
 		// }).
-		when("/login", {
-			templateUrl: "partials/login.html",
-			controller: "LoginCtrl"
-		}).
-		// when("/logout", {
+		// when("/login", {
 		// 	templateUrl: "partials/login.html",
 		// 	controller: "LoginCtrl"
 		// }).
+		when("/logout", {
+			templateUrl: "partials/login.html",
+			controller: "LoginCtrl"
+		}).
 		otherwise("/");
 });
 
-app.run(($location) => {
-	let actorsRef = new Firebase("https://actor-db.firebaseio.com/");
+// app.run(($location) => {
+// 	let actorsRef = new Firebase("https://actor-db.firebaseio.com/");
 
-	actorsRef.onAuth(authData => {
-		if(!authData){
-			$location.path("/login");
-		}
-	});
-});
+// 	actorsRef.onAuth(authData => {
+// 		if(!authData){
+// 			$location.path("/login");
+// 		}
+// 	});
+// });
+
+var config = {
+    apiKey: "AIzaSyDhDejwfBORMv-Q9zCP-45cHOobjWzMFok",
+    authDomain: "actor-db.firebaseapp.com",
+    databaseURL: "https://actor-db.firebaseio.com",
+    storageBucket: "actor-db.appspot.com",
+ };
+ firebase.initializeApp(config);
+ // console.log(firebase);
+
+
+
+
+

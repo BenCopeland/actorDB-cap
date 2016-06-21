@@ -1,8 +1,9 @@
 "use strict";
 																			// vv actorStorage vv
 app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
-	let ref = new Firebase(firebaseURL);
+	// let ref = new Firebase(firebaseURL);
 	$scope.actors = [];
+	// console.log(firebase);
 	
 	// var getActorList = function(){
 	// var actors = [];
@@ -28,41 +29,51 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 	// 	$scope.actors = actorCollection;
 	// });
 
-	$scope.account = {
-		email: "",
-		password: ""
-	};
+	// $scope.account = {
+	// 	email: "",
+	// 	password: ""
+	// };
 
 	// if im in logout, log me out
-	if($location.path() === "/logout"){
-		ref.unauth();
-	}
+	// if($location.path() === "/logout"){
+	// 	firebase.auth().signOut().then(function() {
+	// 		console.log("Successfully logged out.");
+	// 	}, function(error) {
+	// 		console.log(error.code);
+	// 		console.log(error.message);
+	// 	});
+	// }
 
 				// = function(){} same as = () => {}  es6
 	$scope.register = () => {
-		console.log("you clicked register");
-		ref.createUser({
-			email: $scope.account.email,
-			password: $scope.account.password
-		}, (error, userData) => {
-			if (error){
-				console.log(`error creating user: ${error}`);
-			}else{
-				console.log(`created user account with uid: ${userData.uid}`);
-				$scope.login();
-			}
-		});
-	};
+		AuthFactory.createNewUser($scope.account.email, $scope.account.password);
+		$location.path("/actors/new");
+	}
 
 	$scope.login = () => {
-		console.log("you clicked login");
-		AuthFactory
-			.authenticate($scope.account)
-			.then(() => {
-				// $scope.hasUser = true;
-				$location.path("/");
-				// wierd angular method? magic fix
-				$scope.$apply();
-			});
+		AuthFactory.signIn($scope.account.email, $scope.account.password);
+		$location.path("/actors/new");		
 	};
+
+	$scope.logout = () => {
+		// let errorMessage = "";
+		firebase.auth().signOut().then(function() {
+			// console.log("Successfully logged out.");
+		}, function(error) {
+			console.log(error.code);
+			console.log(error.message);
+		});
+		$location.path("/logout");
+	}
+		
+	
+
 });
+
+
+
+
+
+
+
+

@@ -131,9 +131,7 @@ app.factory("actorStorage", function($q, $http, firebaseURL, AuthFactory){
  //        });
 	// };
 
-	// return {getContactList:getContactList,
- //            deleteContact:deleteContact,
- //            postNewContact:postNewContact,
- //            getSingleContact:getSingleContact};
+	return {getActorList:getActorList,
+            postNewActor:postNewActor};
 
 });
