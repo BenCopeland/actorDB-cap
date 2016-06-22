@@ -5,7 +5,7 @@ app.factory("AuthFactory", function(firebaseURL, $http) {
 
 
   // let ref = new Firebase(firebaseURL);
-  let currentUser = null;
+  // let currentUser = null;
 
   // return whole page same as return {blah:blah, dose:dose} at bottom
   return {
@@ -13,17 +13,25 @@ app.factory("AuthFactory", function(firebaseURL, $http) {
     createNewUser(email, password) {
     firebase.auth().createUserWithEmailAndPassword(email, password).
       catch(function(error) {
-        console.log(error.code);
-        alert(error.message);
+        console.log("New user register failed: ", error.message);
+        // alert(error.message);
         });
     },
 
     signIn(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).
       catch(function(error) {
-        console.log(error.code);
-        alert(error.message);
+        console.log("login failed: ", error.message);
+        // alert(error.message);
       });
+    },
+
+    signOut() {
+    firebase.auth().signOut().
+      catch(function(error) {
+        console.log("logout failed: ", error.message);
+        // alert(error.message);
+        });
     },
 
     isAuthenticated () {

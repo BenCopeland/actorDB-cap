@@ -47,22 +47,19 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 				// = function(){} same as = () => {}  es6
 	$scope.register = () => {
 		AuthFactory.createNewUser($scope.account.email, $scope.account.password);
+		console.log("User successfully registered");
 		$location.path("/actors/new");
 	}
 
 	$scope.login = () => {
 		AuthFactory.signIn($scope.account.email, $scope.account.password);
+		console.log("User successfully logged in");
 		$location.path("/actors/new");		
 	};
 
 	$scope.logout = () => {
-		// let errorMessage = "";
-		firebase.auth().signOut().then(function() {
-			// console.log("Successfully logged out.");
-		}, function(error) {
-			console.log(error.code);
-			console.log(error.message);
-		});
+		AuthFactory.signOut();
+		console.log("User successfully logged out");
 		$location.path("/logout");
 	}
 		
