@@ -3,8 +3,9 @@
 var app = angular.module("ActorDBApp", ["ngRoute"])
 	.constant("firebaseURL", "https://actor-db.firebaseio.com/");
 
+
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
-	if(AuthFactory.isAuthenticated()){
+	if(AuthFactory.getUser()){
 		console.log("user is authenticated, resolve route promise");
 		resolve();
 	}else{
@@ -12,6 +13,16 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 		reject();
 	}
 });
+
+// let isAuth = false;
+
+// firebase.auth().onAuthStateChanged(function(user) {
+//   if (user) {
+//     isAuth = true;
+//   } else {
+//     isAuth = false;
+//   }
+// });
 
 //vvv angular method run once
 app.config(function($routeProvider){

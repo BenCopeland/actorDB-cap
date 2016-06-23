@@ -1,8 +1,9 @@
 "use strict";
 																			// vv actorStorage vv
 app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
-	// let ref = new Firebase(firebaseURL);
+	let currentUser = firebase.auth().currentUser;
 	$scope.actors = [];
+	AuthFactory.authenticate();
 	// console.log(firebase);
 	
 	// var getActorList = function(){
@@ -47,22 +48,39 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 				// = function(){} same as = () => {}  es6
 	$scope.register = () => {
 		AuthFactory.createNewUser($scope.account.email, $scope.account.password);
-		console.log("User successfully registered");
-		$location.path("/actors/new");
-	}
+		// $location.path("/actors/new");	
+		// AuthFactory.authenticate();
+		// $location.path("/actors/new");
+		// console.log("User successfully registered");
+		// console.log("after register", firebase.auth().currentUser);
+	};
 
 	$scope.login = () => {
-		AuthFactory.signIn($scope.account.email, $scope.account.password);
-		console.log("User successfully logged in");
+		// console.log("before login", firebase.auth().currentUser);
+		AuthFactory.login($scope.account.email, $scope.account.password);
 		$location.path("/actors/new");		
+		// console.log("after login", firebase.auth().currentUser);
 	};
 
 	$scope.logout = () => {
-		AuthFactory.signOut();
-		console.log("User successfully logged out");
+		// console.log("before logout", firebase.auth().currentUser);
+		firebase.auth().signOut().
+      		catch(function(error) {
+        	console.log("logout failed: ", error.message);
+        	// alert(error.message);
+        });
+
+		// AuthFactory.authenticate();
+		// console.log("User successfully logged out");
+		console.log(AuthFactory.getUser().email, " has logged out");
 		$location.path("/logout");
-	}
-		
+
+	};
+	
+	// $scope.isAuthenticatedTest = () => {
+ //      let authData = firebase.auth().currentUser;
+ //      return (authData) ? true : false;
+ //    }
 	
 
 });
