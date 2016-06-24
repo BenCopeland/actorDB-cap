@@ -34,4 +34,4 @@ app.factory("AuthFactory", function($http, $location) {
           storeNewUser:storeNewUser,
           signIn:signIn
   };
-})
+});

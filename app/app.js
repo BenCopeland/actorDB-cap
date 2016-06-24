@@ -1,7 +1,6 @@
 "use strict";
 
-var app = angular.module("ActorDBApp", ["ngRoute"])
-
+var app = angular.module("ActorDBApp", ["ngRoute"]);
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 	if(AuthFactory.isAuthenticated() === null){
@@ -13,7 +12,6 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 	}
 });
 
-//vvv angular method run once
 app.config(function($routeProvider){
 	$routeProvider.
 		when("/", {
