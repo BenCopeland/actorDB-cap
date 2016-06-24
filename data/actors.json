@@ -1,0 +1,65 @@
+{
+	"actors": {
+		"firebasekey":{
+			"firstName": "Tyler",
+			"lastName": "Adams",
+			"streetAddress": "1441 Lebanon Pike",
+			"city": "Nashville",
+			"state": "TN",
+			"zipcode": "37210",
+			"phone": "(214)793-4185",
+			"email": " tylerjeffrey2@gmail.com",
+			"gender": "Male",
+			"hairColor": "Brown, Blonde",
+			"eyeColor": "Brown",
+			"training": "",
+			"ethnicRange": "Caucasian",
+			"ageRangeMin": 20,
+			"ageRangeMax": 35,
+			"heightFtMin": 5,
+			"heightInMin": 6,
+			"heightFtMax": 6,
+			"heightInMax": 0,
+			"weight": 165,
+			"equityStatus": false,
+			"applicableTags": "",
+			"headshotUrl": "",
+			"resumeUrl": "",
+			"active": true,
+			"notes": "",
+			"uid": ""
+		}
+	},
+	"savedTags":{
+		"firebasekey":{
+			"tag": "",
+			"uid": ""
+		}
+	},
+	"audition":{
+		"firebasekey":{
+			"has": true,
+			"season": "",
+			"date": "",
+			"uid": ""
+		}
+	},
+	"callback":{
+		"firebasekey":{
+			"has": true,
+			"season": "",
+			"date": "",
+			"show": "",
+			"uid": ""
+		}
+	},
+	"cast":{
+		"firebasekey":{
+			"has": true,
+			"season": "",
+			"date": "",
+			"show": "",
+			"uid": ""
+		}
+	}
+}
