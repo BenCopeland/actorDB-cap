@@ -1,4 +1,4 @@
-app.factory("actorStorage", function($q, $http, firebaseURL, AuthFactory){
+app.factory("actorStorage", function($q, $http, AuthFactory){
 	var getActorList = function(){
         var actors = [];
         let user = AuthFactory.getUser();

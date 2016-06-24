@@ -1,16 +1,15 @@
 "use strict";
 
 var app = angular.module("ActorDBApp", ["ngRoute"])
-	.constant("firebaseURL", "https://actor-db.firebaseio.com/");
 
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
-	if(AuthFactory.getUser()){
-		console.log("user is authenticated, resolve route promise");
-		resolve();
-	}else{
+	if(AuthFactory.isAuthenticated() === null){
 		console.log("user is NOT authenticated, reject route promise");
 		reject();
+	}else{
+		console.log("user is authenticated, resolve route promise");
+		resolve();
 	}
 });
 
@@ -27,11 +26,11 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 //vvv angular method run once
 app.config(function($routeProvider){
 	$routeProvider.
-		// when("/", {
-		// 	templateUrl: "partials/contact-list.html",
-		// 	controller: "ContactListCtrl",
-		// 	resolve: {isAuth}
-		// }).
+		when("/", {
+			templateUrl: "partials/actor-new.html",
+			controller: "ActorNewCtrl",
+			resolve: {isAuth}
+		}).
 		// when("/contacts/list", {
 		// 	templateUrl: "partials/contact-list.html",
 		// 	controller: "ContactListCtrl",

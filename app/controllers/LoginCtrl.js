@@ -1,9 +1,10 @@
 "use strict";
 																			// vv actorStorage vv
-app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory){
-	let currentUser = firebase.auth().currentUser;
+app.controller("LoginCtrl", function($scope, $location, AuthFactory){
+	let currentUserData = null;
+	// currentUserData = AuthFactory.getUser();
 	$scope.actors = [];
-	AuthFactory.authenticate();
+	// AuthFactory.authenticate();
 	// console.log(firebase);
 	
 	// var getActorList = function(){
@@ -47,8 +48,11 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 
 				// = function(){} same as = () => {}  es6
 	$scope.register = () => {
-		AuthFactory.createNewUser($scope.account.email, $scope.account.password);
-		// $location.path("/actors/new");	
+		// currentUserData = AuthFactory.getUser();
+			firebase.auth().signOut();
+			AuthFactory.createNewUser($scope.account.email, $scope.account.password);
+			$location.path("/actors/new");
+
 		// AuthFactory.authenticate();
 		// $location.path("/actors/new");
 		// console.log("User successfully registered");
@@ -56,9 +60,15 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 	};
 
 	$scope.login = () => {
+		currentUserData = AuthFactory.getUser();
 		// console.log("before login", firebase.auth().currentUser);
-		AuthFactory.login($scope.account.email, $scope.account.password);
-		$location.path("/actors/new");		
+		if(currentUserData === null){
+			// firebase.auth().signOut();
+			AuthFactory.signIn($scope.account.email, $scope.account.password);
+			$location.path("/actors/new");
+		}else{
+			console.log(currentUserData.email, " is already logged in");
+		}
 		// console.log("after login", firebase.auth().currentUser);
 	};
 
@@ -72,8 +82,13 @@ app.controller("LoginCtrl", function($scope, $location, firebaseURL, AuthFactory
 
 		// AuthFactory.authenticate();
 		// console.log("User successfully logged out");
-		console.log(AuthFactory.getUser().email, " has logged out");
-		$location.path("/logout");
+		if(AuthFactory.getUser()){
+			console.log(AuthFactory.getUser().email, " has logged out");
+			$location.path("/logout");
+		}else{
+			console.log("You are already logged out");
+			$location.path("/logout");
+		}
 
 	};
 	
