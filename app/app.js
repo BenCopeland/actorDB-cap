@@ -5,23 +5,13 @@ var app = angular.module("ActorDBApp", ["ngRoute"])
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 	if(AuthFactory.isAuthenticated() === null){
-		console.log("user is NOT authenticated, reject route promise");
+		console.log("Uh uh uh, you didnt say the magic word");
 		reject();
 	}else{
-		console.log("user is authenticated, resolve route promise");
+		console.log("Oh hey, here's your data");
 		resolve();
 	}
 });
-
-// let isAuth = false;
-
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     isAuth = true;
-//   } else {
-//     isAuth = false;
-//   }
-// });
 
 //vvv angular method run once
 app.config(function($routeProvider){
@@ -62,16 +52,6 @@ app.config(function($routeProvider){
 		otherwise("/");
 });
 
-// app.run(($location) => {
-// 	let actorsRef = new Firebase("https://actor-db.firebaseio.com/");
-
-// 	actorsRef.onAuth(authData => {
-// 		if(!authData){
-// 			$location.path("/login");
-// 		}
-// 	});
-// });
-
 var config = {
     apiKey: "AIzaSyDhDejwfBORMv-Q9zCP-45cHOobjWzMFok",
     authDomain: "actor-db.firebaseapp.com",
@@ -79,7 +59,6 @@ var config = {
     storageBucket: "actor-db.appspot.com",
  };
  firebase.initializeApp(config);
- // console.log(firebase);
 
 
 

@@ -2,8 +2,6 @@
 																			// vv actorStorage vv
 app.controller("LoginCtrl", function($scope, $location, AuthFactory){
 	let currentUserData = null;
-	// currentUserData = AuthFactory.getUser();
-	$scope.actors = [];
 	// AuthFactory.authenticate();
 	// console.log(firebase);
 	
@@ -48,56 +46,35 @@ app.controller("LoginCtrl", function($scope, $location, AuthFactory){
 
 				// = function(){} same as = () => {}  es6
 	$scope.register = () => {
-		// currentUserData = AuthFactory.getUser();
-			firebase.auth().signOut();
-			AuthFactory.createNewUser($scope.account.email, $scope.account.password);
-			$location.path("/actors/new");
-
-		// AuthFactory.authenticate();
-		// $location.path("/actors/new");
-		// console.log("User successfully registered");
-		// console.log("after register", firebase.auth().currentUser);
+		firebase.auth().signOut();
+		AuthFactory.storeNewUser($scope.account.email, $scope.account.password);
+		$location.path("/actors/new");
 	};
 
 	$scope.login = () => {
 		currentUserData = AuthFactory.getUser();
-		// console.log("before login", firebase.auth().currentUser);
 		if(currentUserData === null){
-			// firebase.auth().signOut();
 			AuthFactory.signIn($scope.account.email, $scope.account.password);
+			console.log("Logged in under", $scope.account.email);
 			$location.path("/actors/new");
 		}else{
-			console.log(currentUserData.email, " is already logged in");
+			console.log(currentUserData.email, "is already logged in");
 		}
-		// console.log("after login", firebase.auth().currentUser);
 	};
 
 	$scope.logout = () => {
-		// console.log("before logout", firebase.auth().currentUser);
 		firebase.auth().signOut().
       		catch(function(error) {
-        	console.log("logout failed: ", error.message);
-        	// alert(error.message);
+        	console.log("logout failed:", error.message);
         });
-
-		// AuthFactory.authenticate();
-		// console.log("User successfully logged out");
 		if(AuthFactory.getUser()){
-			console.log(AuthFactory.getUser().email, " has logged out");
+			console.log(AuthFactory.getUser().email, "has logged out");
 			$location.path("/logout");
 		}else{
 			console.log("You are already logged out");
 			$location.path("/logout");
 		}
-
 	};
-	
-	// $scope.isAuthenticatedTest = () => {
- //      let authData = firebase.auth().currentUser;
- //      return (authData) ? true : false;
- //    }
-	
-
 });
 
 
