@@ -8,7 +8,7 @@ app.controller("LoginCtrl", function($scope, $location, AuthFactory){
 			then(()=>{
 				$location.path("/actors/new");
 				$scope.$apply();
-			})
+			});
 	};
 
 	$scope.login = () => {
