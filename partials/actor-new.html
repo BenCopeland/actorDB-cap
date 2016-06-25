@@ -4,15 +4,240 @@
 
 <label>Name</label>
 <div class="row">
-<form class="form-inline">
+<!--   <form class="form-inline"> -->
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="First" ng-model="newTask.firstName">
+    <!-- </div> -->
+    <!-- <div class="form-group"> -->
+      <input type="text" class="form-control" placeholder="Last" ng-model="newTask.firstName">
+    </div>
+  <!-- </form> -->
+</div>
+
+<label>Address</label>
+<div class="row">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="First" ng-model="newTask.firstName">
+    <input type="text" class="form-control" placeholder="Street Address" ng-model="newTask.streetAddress">
+  <!-- </div> -->
+<!-- </div> -->
+<!-- <div class="row"> -->
+  <!-- <div class="form-group"> -->
+    <input type="text" class="form-control" placeholder="City" ng-model="newTask.city">
+  <!-- </div> -->
+  <!-- <form class="form-inline"> -->
+    <!-- <div class="form-group"> -->
+      <input type="text" class="form-control" placeholder="State" ng-model="newTask.state">
+    <!-- </div> -->
+    <!-- <div class="form-group"> -->
+      <input type="text" class="form-control" placeholder="Zipcode" ng-model="newTask.zipcode">
+    <!-- </form> -->
   </div>
+</div>
+
+<label>Phone</label>
+<div class="row">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Last" ng-model="newTask.firstName">
+    <input type="text" class="form-control" placeholder="Phone" ng-model="newTask.phone">
+  </div>
+</div>
+
+<label>Email</label>
+<div class="row">
+  <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email" ng-model="newTask.email">
+  </div>
+</div>
+
+<!-- dropdown group-->
+<form class="form-inline">
+  <div class="row">
+
+    <!-- Gender Dropdown-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Gender
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">Male</a></li>
+          <li><a href="">Female</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hair Color Dropdown-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Hair Color
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">Black</a></li>
+          <li><a href="">Brown</a></li>
+          <li><a href="">Blonde</a></li>
+          <li><a href="">Auburn</a></li>
+          <li><a href="">Chestnut</a></li>
+          <li><a href="">Red</a></li>
+          <li><a href="">Gray/White</a></li>
+          <li><a href="">Bald</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Eye Color Dropdown-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Eye Color
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">Amber</a></li>
+          <li><a href="">Blue</a></li>
+          <li><a href="">Brown</a></li>
+          <li><a href="">Gray</a></li>
+          <li><a href="">Green</a></li>
+          <li><a href="">Hazel</a></li>
+          <li><a href="">Dead-inside</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Training Color Dropdown-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Training
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">Bachelor's Degree</a></li>
+          <li><a href="">Master"s Degree</a></li>
+          <li><a href="">Degree from The School of Hard-Knocks</a></li>
+          <li><a href="">Other</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ethnic Range (?multiselect?) Dropdown. Maybe just radio buttons-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Ethnic Range
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">Black</a></li>
+          <li><a href="">Asian</a></li>
+          <li><a href="">Hispanic</a></li>
+          <li><a href="">Native American</a></li>
+          <li><a href="">Middle Eastern</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ethnic Range (?multiselect?) Dropdown. Maybe just radio buttons-->
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
+                  Tags
+                  <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="">dunno</a></li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </form>
+
+<!-- <label>Weight</label> -->
+<div class="row">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Weight" ng-model="newTask.weight">
+  </div>
 </div>
+
+<!-- height range -->
+<label>Height</label>
+<div class="form-inline">
+  <div class="row">
+    <div class="form-group">
+      <label>FT Max</label>
+      <input type="number" name="quantity" min="1" max="8">
+      <label>IN Max</label>
+      <input type="number" name="quantity" min="1" max="12">
+      <label>FT Min</label>
+      <input type="number" name="quantity" min="1" max="8">
+      <label>IN Min</label>
+      <input type="number" name="quantity" min="1" max="12">
+    </div>
+  </div>
+</div>
+
+<!-- age range -->
+<label>Age Range</label>
+<div class="form-inline">
+  <div class="row">
+    <div class="form-group">
+      <label>Age Max</label>
+      <input type="number" name="quantity" min="1" max="100">
+      <label>Age Min</label>
+      <input type="number" name="quantity" min="1" max="100">
+    </div>
+  </div>
+</div>
+
+<!-- equity? -->
+<div class="form-group">
+<label>Equity</label>
+<div class="row">
+    <input type="radio" name="" value="true">Yes
+    <input type="radio" name="" value="false">No
+  </div>
+</div>
+
+<!-- notes -->
+<div class="form-group">
+  <label>Notes</label>
+  <textarea type="text" class="form-control" rows="5" placeholder=""></textarea>
+</div>
+
 
 <!-- <form class="">
   <div class="form-group">
@@ -50,6 +275,7 @@
     <textarea type="text" class="form-control" rows="5" placeholder="" ng-model="newTask.notes"></textarea>
   </div> -->
 
-  <button class="btn btn-default" ng-click="addNewContact()">Submit</button>
+  <button class="btn btn-default" ng-click="">Cancel</button>
+  <button class="btn btn-default" ng-click="">Submit</button>
 <!-- </form> -->
 </div>

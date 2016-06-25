@@ -3,29 +3,34 @@
 app.factory("AuthFactory", function($http, $location) {
   let currentUserData = null;
 
-
   var isAuthenticated = () => {
     currentUserData = firebase.auth().currentUser;
     return (currentUserData) ? true : false;
   };
 
   var getUser = () => {
-    currentUserData = firebase.auth().currentUser;
     return currentUserData;
   };
 
   var storeNewUser = (email, password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password).
-      catch(function(error) {
-        console.log("New user register failed:", error.message);
+    return firebase.auth().createUserWithEmailAndPassword(email, password).
+      then((userData, error)=>{
+        if(error){
+          return error;
+        }else{
+          currentUserData = userData;
+        }
       });
-    console.log("New user stored");
   };
 
   var signIn = (email, password) => {
-    firebase.auth().signInWithEmailAndPassword(email, password).
-      catch(function(error) {
-        console.log("login failed:", error.message);
+    return firebase.auth().signInWithEmailAndPassword(email, password).
+      then((userData, error)=>{
+        if(error){
+          return error;
+        }else{
+          currentUserData = userData;
+        }
       });
   };
 
@@ -34,4 +39,4 @@ app.factory("AuthFactory", function($http, $location) {
           storeNewUser:storeNewUser,
           signIn:signIn
   };
-})
+});
