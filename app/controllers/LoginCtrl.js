@@ -1,37 +1,45 @@
 "use strict";
 
 app.controller("LoginCtrl", function($scope, $location, AuthFactory){
-	let currentUserData = null;
 
 	$scope.register = () => {
 		firebase.auth().signOut();
-		AuthFactory.storeNewUser($scope.account.email, $scope.account.password);
-		$location.path("/actors/new");
+		AuthFactory.storeNewUser($scope.account.email, $scope.account.password).
+			then(()=>{
+				$location.path("/actors/new");
+				$scope.$apply();
+			})
 	};
 
 	$scope.login = () => {
-		currentUserData = AuthFactory.getUser();
-		if(currentUserData === null){
-			AuthFactory.signIn($scope.account.email, $scope.account.password);
-			console.log("Logged in under", $scope.account.email);
-			$location.path("/actors/new");
-		}else{
-			console.log(currentUserData.email, "is already logged in");
-		}
+		firebase.auth().signOut();
+		AuthFactory.signIn($scope.account.email, $scope.account.password).
+			then(()=>{
+				let currentUser = AuthFactory.getUser();
+				console.log("Logged in under", currentUser.email);
+				$location.path("/actors/new");
+				$scope.$apply();
+			}, (error)=>{
+				console.log("Hold on kimosabi:", error.message);
+			});
 	};
 
 	$scope.logout = () => {
 		firebase.auth().signOut().
-      		catch(function(error) {
-        	console.log("logout failed:", error.message);
-        });
-		if(AuthFactory.getUser()){
-			console.log(AuthFactory.getUser().email, "has logged out");
-			$location.path("/logout");
-		}else{
-			console.log("You are already logged out");
-			$location.path("/logout");
-		}
+			then(()=>{
+				let currentUser = AuthFactory.getUser();
+				if(currentUser){
+					console.log(currentUser.email, "has logged out");
+					$location.path("/logout");
+					$scope.$apply();
+				}else{
+					console.log("You are already logged out");
+					$location.path("/logout");
+					$scope.$apply();
+				}
+			}, (error)=>{
+				console.log("Whoa there cowboy:", error.message);
+			});
 	};
 });
 

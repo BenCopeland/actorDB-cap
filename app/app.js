@@ -3,11 +3,12 @@
 var app = angular.module("ActorDBApp", ["ngRoute"]);
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
-	if(AuthFactory.isAuthenticated() === null){
-		console.log("Uh uh uh, you didnt say the magic word");
+	if(AuthFactory.isAuthenticated() === false){
+		console.log("Uh uh uh, you didnt say the magic word.");
 		reject();
 	}else{
-		console.log("Oh hey, here's your data");
+		let currentUser = AuthFactory.getUser();
+		console.log("Oh hey", currentUser.email);
 		resolve();
 	}
 });
@@ -15,9 +16,8 @@ let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 app.config(function($routeProvider){
 	$routeProvider.
 		when("/", {
-			templateUrl: "partials/actor-new.html",
-			controller: "ActorNewCtrl",
-			resolve: {isAuth}
+			templateUrl: "partials/login.html",
+			controller: "LoginCtrl"
 		}).
 		// when("/contacts/list", {
 		// 	templateUrl: "partials/contact-list.html",
@@ -39,10 +39,10 @@ app.config(function($routeProvider){
 		// 	controller: "ContactEditCtrl",
 		// 	resolve: {isAuth}
 		// }).
-		// when("/login", {
-		// 	templateUrl: "partials/login.html",
-		// 	controller: "LoginCtrl"
-		// }).
+		when("/login", {
+			templateUrl: "partials/login.html",
+			controller: "LoginCtrl"
+		}).
 		when("/logout", {
 			templateUrl: "partials/login.html",
 			controller: "LoginCtrl"
