@@ -1,6 +1,7 @@
 "use strict";
 
 var app = angular.module("ActorDBApp", ["ngRoute"]);
+	// .constant("database", firebase.database());
 
 let isAuth = (AuthFactory) => new Promise ((resolve, reject) => {
 	if(AuthFactory.isAuthenticated() === false){
