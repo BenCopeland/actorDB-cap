@@ -16,7 +16,7 @@ app.controller("LoginCtrl", function($scope, $location, AuthFactory){
 		AuthFactory.signIn($scope.account.email, $scope.account.password).
 			then(()=>{
 				let currentUser = AuthFactory.getUser();
-				console.log("Logged in under", currentUser.email);
+				console.log("Logged in as", currentUser.email);
 				$location.path("/actors/new");
 				$scope.$apply();
 			}, (error)=>{

@@ -17,19 +17,19 @@
 <label>Address</label>
 <div class="row">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Street Address">
+    <input type="text" class="form-control" placeholder="Street Address" ng-model="newTask.streetAddress">
   <!-- </div> -->
 <!-- </div> -->
 <!-- <div class="row"> -->
   <!-- <div class="form-group"> -->
-    <input type="text" class="form-control" placeholder="City">
+    <input type="text" class="form-control" placeholder="City" ng-model="newTask.City">
   <!-- </div> -->
   <!-- <form class="form-inline"> -->
     <!-- <div class="form-group"> -->
-      <input type="text" class="form-control" placeholder="State">
+      <input type="text" class="form-control" placeholder="State" ng-model="newTask.state">
     <!-- </div> -->
     <!-- <div class="form-group"> -->
-      <input type="text" class="form-control" placeholder="Zipcode">
+      <input type="text" class="form-control" placeholder="Zipcode" ng-model="newTask.zipcode">
     <!-- </form> -->
   </div>
 </div>
@@ -37,14 +37,14 @@
 <label>Phone</label>
 <div class="row">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Phone">
+    <input type="text" class="form-control" placeholder="Phone" ng-model="newTask.phone">
   </div>
 </div>
 
 <label>Email</label>
 <div class="row">
   <div class="form-group">
-    <input type="email" class="form-control" placeholder="Email">
+    <input type="email" class="form-control" placeholder="Email" ng-model="newTask.email">
   </div>
 </div>
 
@@ -72,6 +72,13 @@
     </div>
 
     <!-- Hair Color Dropdown-->
+
+    <select ng-model="selectedSize" ng-options="choice as choice for (idx, choice) in val.sizes.split(',')" 
+        ng-change="selected.product.set.size(selectedSize)">
+
+        <option value="">Please select a size</option>
+</select>
+
     <div class="form-group">
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle"

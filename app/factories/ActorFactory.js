@@ -28,11 +28,37 @@ app.factory("actorStorage", function($q, $http, AuthFactory){
 	// 	});
 	// };
 
-    var postNewActor = (userID, actorData) => {
-        let currentUserID = AuthFactory.getUser().uid;
+    var postNewActor = (entryObj) => {
+        let userID = AuthFactory.getUser().uid;
         // let newActorObject = newActor;
-        firebase.database().ref('actor-db/' + userID).set({
-            actorData
+        firebase.database().ref('actors/').push({
+            uid: userID,
+            firstName: entryObj.firstName,
+            lastName: entryObj.lastName,
+            streetAddress: entryObj.streetAddress,
+            city: entryObj.city,
+            state: entryObj.state,
+            zipcode: entryObj.zipcode,
+            phone: entryObj.phone,
+            email: entryObj.email,
+            gender: entryObj.gender,
+            hairColor: entryObj.hairColor,
+            eyeColor: entryObj.eyeColor,
+            training: entryObj.training,
+            ethnicRange: entryObj.ethnicRange,
+            ageRangeMin: entryObj.ageRangeMin,
+            ageRangeMax: entryObj.ageRangeMax,
+            heightFtMin: entryObj.heightFtMin,
+            heightInMin: entryObj.heightInMin,
+            heightFtMax: entryObj.heightFtMax,
+            heightInMax: entryObj.heightInMax,
+            weight: entryObj.weight,
+            equityStatus: entryObj.equityStatus,
+            applicableTags: entryObj.applicableTags,
+            headshotUrl: entryObj.headshotUrl,
+            resumeUrl: entryObj.resumeUrl,
+            active: entryObj.active,
+            notes: entryObj.notes,
         })
     };
 
