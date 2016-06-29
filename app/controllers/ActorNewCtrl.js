@@ -1,11 +1,10 @@
 app.controller("ActorNewCtrl", function($scope, $location, actorStorage, AuthFactory){
-    // AuthFactory.currentUser = firebase.auth().currentUser;
 	var currentUserID = AuthFactory.getUser().uid;
-    // $scope.submitButtonText = "Add New Contact";
+
     $scope.newTask = {
         uid: "",
         firstName: "",
-        lastName: ""
+        lastName: "",
         streetAddress: "",
         city: "",
         state: "",
@@ -16,20 +15,24 @@ app.controller("ActorNewCtrl", function($scope, $location, actorStorage, AuthFac
         hairColor: "",
         eyeColor: "",
         training: "",
-        ethnicRange: "",
+        black: false,
+        asian: false,
+        hispanic: false,
+        nativeAmerican: false,
+        middleEastern: false,
         ageRangeMin: 0,
         ageRangeMax: 0,
         heightFtMin: 0,
         heightInMin: 0,
         heightFtMax: 0,
         heightInMax: 0,
-        weight: 0,
+        weight: "",
         equityStatus: false,
         applicableTags: "",
         headshotUrl: "",
         resumeUrl: "",
         active: true,
-        notes: "",
+        notes: ""
 
     }
       

@@ -28,6 +28,10 @@ app.factory("actorStorage", function($q, $http, AuthFactory){
 	// 	});
 	// };
 
+    var stringifyEthnicities = (arrayOfEthnicites)=>{
+        return arrayOfEthnicites.toString();
+    }
+
     var postNewActor = (entryObj) => {
         let userID = AuthFactory.getUser().uid;
         // let newActorObject = newActor;
@@ -45,7 +49,11 @@ app.factory("actorStorage", function($q, $http, AuthFactory){
             hairColor: entryObj.hairColor,
             eyeColor: entryObj.eyeColor,
             training: entryObj.training,
-            ethnicRange: entryObj.ethnicRange,
+            black: entryObj.black,
+            asian: entryObj.asian,
+            hispanic: entryObj.hispanic,
+            nativeAmerican: entryObj.nativeAmerican,
+            middleEastern: entryObj.middleEastern,
             ageRangeMin: entryObj.ageRangeMin,
             ageRangeMax: entryObj.ageRangeMax,
             heightFtMin: entryObj.heightFtMin,
@@ -165,6 +173,7 @@ app.factory("actorStorage", function($q, $http, AuthFactory){
  //        });
 	// };
 
-	return {postNewActor:postNewActor};
+	return {postNewActor:postNewActor,
+            stringifyEthnicities:stringifyEthnicities};
 
 });

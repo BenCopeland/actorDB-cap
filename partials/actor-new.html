@@ -2,8 +2,8 @@
 
 <h1>New Entry</h1>
 
+<div>
 <label>Name</label>
-<div class="row">
 <!--   <form class="form-inline"> -->
     <div class="form-group">
       <input type="text" class="form-control" placeholder="First" ng-model="newTask.firstName">
@@ -14,275 +14,152 @@
   <!-- </form> -->
 </div>
 
+<div>
 <label>Address</label>
-<div class="row">
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Street Address" ng-model="newTask.streetAddress">
-  <!-- </div> -->
-<!-- </div> -->
-<!-- <div class="row"> -->
-  <!-- <div class="form-group"> -->
-    <input type="text" class="form-control" placeholder="City" ng-model="newTask.City">
-  <!-- </div> -->
-  <!-- <form class="form-inline"> -->
-    <!-- <div class="form-group"> -->
-      <input type="text" class="form-control" placeholder="State" ng-model="newTask.state">
-    <!-- </div> -->
-    <!-- <div class="form-group"> -->
-      <input type="text" class="form-control" placeholder="Zipcode" ng-model="newTask.zipcode">
-    <!-- </form> -->
+    <input type="text" class="form-control" placeholder="City" ng-model="newTask.city">
+    <input type="text" class="form-control" placeholder="State" ng-model="newTask.state">
+    <input type="text" class="form-control" placeholder="Zipcode" ng-model="newTask.zipcode">
   </div>
 </div>
 
+<div>
 <label>Phone</label>
-<div class="row">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Phone" ng-model="newTask.phone">
+    <input type="text" class="form-control" placeholder="(000)000-0000" ng-model="newTask.phone">
   </div>
 </div>
 
+<div>
 <label>Email</label>
-<div class="row">
   <div class="form-group">
-    <input type="email" class="form-control" placeholder="Email" ng-model="newTask.email">
+    <input type="email" class="form-control" placeholder="Example@domain.com" ng-model="newTask.email">
   </div>
 </div>
 
 <!-- dropdown group-->
 <form class="form-inline">
-  <div class="row">
+  <div class="form-group">
 
-    <!-- Gender Dropdown-->
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Gender
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">Male</a></li>
-          <li><a href="">Female</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- Gender Dropdown-->
+    <label>Gender:</label>
+    <select ng-model="newTask.gender">
+      <option disabled selected>Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
 
-    <!-- Hair Color Dropdown-->
+  <!-- Training Color Dropdown-->
+    <label>Training:</label>
+    <select ng-model="newTask.training">
+      <option disabled selected>Training</option>
+      <option value="Bachelor's Degree">Bachelor's Degree</option>
+      <option value="Master's Degree">Master's Degree</option>
+      <option value="Other">Other</option>
+    </select>
+  
+  </div>
+  <div class="form-group">
 
-    <select ng-model="selectedSize" ng-options="choice as choice for (idx, choice) in val.sizes.split(',')" 
-        ng-change="selected.product.set.size(selectedSize)">
+  <!-- Eye Color Dropdown-->
+    <label>Eye Color:</label>
+    <select ng-model="newTask.eyeColor">test
+      <option disabled selected>Eye Color</option>
+      <option value="Amber">Amber</option>
+      <option value="Blue">Blue</option>
+      <option value="Brown">Brown</option>
+      <option value="Gray">Gray</option>
+      <option value="Green">Green</option>
+      <option value="Hazel">Hazel</option>
+      <option value="Dead Inside">Dead Inside</option>
+    </select>
 
-        <option value="">Please select a size</option>
-</select>
-
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Hair Color
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">Black</a></li>
-          <li><a href="">Brown</a></li>
-          <li><a href="">Blonde</a></li>
-          <li><a href="">Auburn</a></li>
-          <li><a href="">Chestnut</a></li>
-          <li><a href="">Red</a></li>
-          <li><a href="">Gray/White</a></li>
-          <li><a href="">Bald</a></li>
-        </ul>
-      </div>
-    </div>
-
-
-    <!-- Eye Color Dropdown-->
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Eye Color
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">Amber</a></li>
-          <li><a href="">Blue</a></li>
-          <li><a href="">Brown</a></li>
-          <li><a href="">Gray</a></li>
-          <li><a href="">Green</a></li>
-          <li><a href="">Hazel</a></li>
-          <li><a href="">Dead-inside</a></li>
-        </ul>
-      </div>
-    </div>
-
-
-    <!-- Training Color Dropdown-->
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Training
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">Bachelor's Degree</a></li>
-          <li><a href="">Master"s Degree</a></li>
-          <li><a href="">Degree from The School of Hard-Knocks</a></li>
-          <li><a href="">Other</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Ethnic Range (?multiselect?) Dropdown. Maybe just radio buttons-->
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Ethnic Range
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">Black</a></li>
-          <li><a href="">Asian</a></li>
-          <li><a href="">Hispanic</a></li>
-          <li><a href="">Native American</a></li>
-          <li><a href="">Middle Eastern</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Ethnic Range (?multiselect?) Dropdown. Maybe just radio buttons-->
-    <div class="form-group">
-      <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle"
-                type="button"
-                id="dropdownMenu1"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="true">
-                  Tags
-                  <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="">dunno</a></li>
-        </ul>
-      </div>
-    </div>
+  <!-- Hair Color Dropdown-->
+    <label>Hair Color:</label>
+    <select ng-model="newTask.hairColor">
+      <option disabled selected>Hair Color</option>
+      <option value="Black">Black</option>
+      <option value="Brown">Brown</option>
+      <option value="Blonde">Blonde</option>
+      <option value="Auburn">Auburn</option>
+      <option value="Chestnut">Chestnut</option>
+      <option value="Red">Red</option>
+      <option value="Gray/White">Gray/White</option>
+      <option value="Bald">Bald</option>
+    </select>
 
   </div>
 </form>
 
-<!-- <label>Weight</label> -->
-<div class="row">
+<!-- Ethnic Range (?multiselect?) Dropdown. Maybe just radio buttons-->
+<label>Ethnic Range</label>
+<form class="form-inline">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Weight">
+    <input type="checkbox" ng-model="newTask.black">Black
+    <input type="checkbox" ng-model="newTask.asian">Asian
+    <input type="checkbox" ng-model="newTask.hispanic">Hispanic
+    <input type="checkbox" ng-model="newTask.nativeAmerican">Native American
+    <input type="checkbox" ng-model="newTask.middleEastern">Middle Eastern
   </div>
-</div>
+</form>
+
+<!-- <label>Weight</label> -->
+<form class="form-inline">
+  <!-- <div class="row"> -->
+    <div class="form-group">
+      <label>Weight</label>
+      <input type="number" placeholder="Weight" ng-model="newTask.weight">
+    </div>
+    <div class="form-group">
+      <!-- equity? -->
+      <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="newTask.equity">Equity
+    </div>
+  <!-- </div> -->
+</form>
 
 <!-- height range -->
 <label>Height</label>
-<div class="form-inline">
-  <div class="row">
+<div>
+  <form class="form-inline">
     <div class="form-group">
-      <label>FT Max</label>
-      <input type="number" name="quantity" min="1" max="8">
-      <label>IN Max</label>
-      <input type="number" name="quantity" min="1" max="12">
-      <label>FT Min</label>
-      <input type="number" name="quantity" min="1" max="8">
-      <label>IN Min</label>
-      <input type="number" name="quantity" min="1" max="12">
+      <!-- <label>Height Max</label> -->
+      Height Max: <input type="number" min="0" max="8" ng-model="newTask.heightFtMax">ft
+      <input type="number" min="0" max="12" ng-model="newTask.heightInMax">in
     </div>
-  </div>
+    <div class="form-group">
+      <!-- <label>Height Minimum</label> -->
+      Height Minimum: <input type="number" min="0" max="8" ng-model="newTask.heightFtMin">ft
+      <input type="number" min="0" max="12" ng-model="newTask.heightInMin">in
+    </div>
+  </form>
 </div>
 
 <!-- age range -->
 <label>Age Range</label>
-<div class="form-inline">
-  <div class="row">
+<div>
+  <form class="form-inline">
     <div class="form-group">
-      <label>Age Max</label>
-      <input type="number" name="quantity" min="1" max="100">
-      <label>Age Min</label>
-      <input type="number" name="quantity" min="1" max="100">
+      Minimum Age: <input type="number" name="quantity" min="0" max="100" ng-model="newTask.ageRangeMin">
     </div>
-  </div>
-</div>
-
-<!-- equity? -->
-<div class="form-group">
-<label>Equity</label>
-<div class="row">
-    <input type="radio" name="" value="true">Yes
-    <input type="radio" name="" value="false">No
-  </div>
+    <div class="form-group">
+      Max Age: <input type="number" name="quantity" min="0" max="100" ng-model="newTask.ageRangeMax">
+    </div>
+  </form>
 </div>
 
 <!-- notes -->
 <div class="form-group">
   <label>Notes</label>
-  <textarea type="text" class="form-control" rows="5" placeholder=""></textarea>
+  <textarea type="text" class="form-control" rows="5" placeholder="" ng-model="newTask.notes"></textarea>
 </div>
 
+<button class="btn btn-default" ng-click="">Cancel</button>
+<button class="btn btn-default" ng-click="addNewActor()">Submit</button>
 
-<!-- <form class="">
-  <div class="form-group">
-    <label>First Name</label>
-    <input type="text" class="form-control" placeholder="" ng-model="newTask.firstName">
-  </div>
+<div class="row"></div>
 
-  <div class="form-group">
-    <label>Last Name</label>
-    <input type="text" class="form-control" placeholder="" ng-model="newTask.lastName">
-  </div>
 
-  <div class="form-group">
-    <label>Phone Number</label>
-    <input type="text" class="form-control" placeholder="(555)867-5309" ng-model="newTask.phone">
-  </div>
 
-  <div class="form-group">
-    <label>Address</label>
-    <input type="text" class="form-control" placeholder="Margaritaville" ng-model="newTask.address">
-  </div>
 
-  <div class="form-group">
-    <label>Email</label>
-    <input type="text" class="form-control" placeholder="example@host.com" ng-model="newTask.email">
-  </div>
 
-  <div class="form-group">
-    <label>Company</label>
-    <input type="text" class="form-control" placeholder="Slaver" ng-model="newTask.company">
-  </div>
-
-  <div class="form-group">
-    <label>Notes</label>
-    <textarea type="text" class="form-control" rows="5" placeholder="" ng-model="newTask.notes"></textarea>
-  </div> -->
-
-  <button class="btn btn-default" ng-click="">Cancel</button>
-  <button class="btn btn-default" ng-click="addNewActor()">Submit</button>
-<!-- </form> -->
-</div>
